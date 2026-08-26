@@ -26,9 +26,16 @@ function createFreelancer() {
     occupation,
     rate,
   };
-}
-// completed
-const freelancers = [];
-for (let i = 0; i < NUM_FREELANCERS; i++) {
-  freelancers.push(createFreelancer());
+} // #2
+
+const freelancers = Array.from({ length: NUM_FREELANCERS }, createFreelancer);
+
+// #3
+
+function findAverageRate() {
+  const total = freelancers.reduce(
+    (sum, freelancer) => sum + freelancer.rate,
+    0,
+  );
+  return total / freelancers.length;
 }
