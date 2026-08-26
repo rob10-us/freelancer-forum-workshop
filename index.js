@@ -46,7 +46,7 @@ const averageRate = findAverageRate();
 
 // #5
 
-function Freelancer(freelancer) {
+function FreelancerRow(freelancer) {
   const $tr = document.createElement("tr");
   $tr.innerHTML = `
   <td>${freelancer.name}</td>
@@ -55,3 +55,20 @@ function Freelancer(freelancer) {
   `;
   return $tr;
 }
+
+// #6
+function FreelancerRows() {
+  const $tbody = document.createElement("tbody");
+  const $freelancers = freelancers.map(FreelancerRow);
+  $tbody.replaceChildren(...$freelancers);
+  return $tbody;
+}
+
+// #7
+function AverageRate() {
+  const $p = document.createElement("p");
+  $p.textContent = `The Average Rate of all freelancers is: $${averageRate}.`;
+  return $p;
+}
+
+// #8
