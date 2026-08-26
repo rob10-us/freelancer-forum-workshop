@@ -39,3 +39,19 @@ function findAverageRate() {
   );
   return total / freelancers.length;
 }
+
+// #4
+
+const averageRate = findAverageRate();
+
+// #5
+
+function Freelancer(freelancer) {
+  const $tr = document.createElement("tr");
+  $tr.innerHTML = `
+  <td>${freelancer.name}</td>
+  <td>${freelancer.occupation}</td>
+  <td>${freelancer.rate}</td>
+  `;
+  return $tr;
+}
