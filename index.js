@@ -51,7 +51,7 @@ function FreelancerRow(freelancer) {
   $tr.innerHTML = `
   <td>${freelancer.name}</td>
   <td>${freelancer.occupation}</td>
-  <td>${freelancer.rate}</td>
+  <td>$${freelancer.rate}</td>
   `;
   return $tr;
 }
@@ -67,8 +67,31 @@ function FreelancerRows() {
 // #7
 function AverageRate() {
   const $p = document.createElement("p");
-  $p.textContent = `The Average Rate of all freelancers is: $${averageRate}.`;
+  $p.textContent = `The Average Rate of all freelancers is: $${averageRate.toFixed(2)}.`;
   return $p;
 }
 
 // #8
+function render() {
+  const $app = document.querySelector("#app");
+
+  $app.innerHTML = `
+<h1> Freelancers</h1>
+<p id="AverageRate"></p>
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Occupation</th>
+      <th>Rate</th>
+    </tr>
+  </thead>
+  <tbody id="FreelancerRows"></tbody>
+</table>
+`;
+
+  $app.querySelector("#AverageRate").replaceWith(AverageRate());
+  $app.querySelector("#FreelancerRows").replaceWith(FreelancerRows());
+}
+
+render();
